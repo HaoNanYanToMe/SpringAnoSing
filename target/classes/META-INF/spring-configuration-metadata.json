@@ -1,0 +1,91 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.prism.springas.utils.oAuth2.oAuth2Config",
+      "name": "configBasic.oAuth2",
+      "type": "com.prism.springas.utils.oAuth2.oAuth2Config"
+    },
+    {
+      "sourceType": "com.prism.springas.utils.druid.DynamicDataSourceConfig",
+      "name": "spring.datasource.druid.sync",
+      "sourceMethod": "syncDataSource()",
+      "type": "javax.sql.DataSource"
+    },
+    {
+      "sourceType": "com.prism.springas.utils.druid.DynamicDataSourceConfig",
+      "name": "spring.datasource.druid.sys",
+      "sourceMethod": "sysDataSource()",
+      "type": "javax.sql.DataSource"
+    },
+    {
+      "sourceType": "com.prism.springas.utils.redis.JedisProperties",
+      "name": "spring.redis",
+      "type": "com.prism.springas.utils.redis.JedisProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.prism.springas.utils.oAuth2.oAuth2Config",
+      "name": "configBasic.oAuth2.e2-access-token-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.prism.springas.utils.oAuth2.oAuth2Config",
+      "name": "configBasic.oAuth2.e2-authorize-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.prism.springas.utils.oAuth2.oAuth2Config",
+      "name": "configBasic.oAuth2.e2-logout-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.prism.springas.utils.oAuth2.oAuth2Config",
+      "name": "configBasic.oAuth2.e2-o-auth-app1-call-back-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.prism.springas.utils.oAuth2.oAuth2Config",
+      "name": "configBasic.oAuth2.e2-o-auth-app1-client-id",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.prism.springas.utils.oAuth2.oAuth2Config",
+      "name": "configBasic.oAuth2.e2-o-auth-app1-client-secret",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.prism.springas.utils.oAuth2.oAuth2Config",
+      "name": "configBasic.oAuth2.e2-o-auth-app1-domain",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.prism.springas.utils.oAuth2.oAuth2Config",
+      "name": "configBasic.oAuth2.use-e2",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.prism.springas.utils.redis.JedisProperties",
+      "name": "spring.redis.cluster-nodes",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.prism.springas.utils.redis.JedisProperties",
+      "defaultValue": 0,
+      "name": "spring.redis.command-timeout",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.prism.springas.utils.redis.JedisProperties",
+      "defaultValue": 0,
+      "name": "spring.redis.expire-seconds",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.prism.springas.utils.redis.JedisProperties",
+      "name": "spring.redis.password",
+      "type": "java.lang.String"
+    }
+  ]
+}

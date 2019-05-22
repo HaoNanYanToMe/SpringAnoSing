@@ -1,0 +1,60 @@
+server:
+  port: 8088
+
+logging:
+  level:
+     com.prism.springas.dao: debug
+
+spring:
+  application:
+    name: springas-Drug
+  redis: #Redis缓存服务集群
+    clusterNodes: 127.0.0.1:7001,127.0.0.1:7002,127.0.0.1:7003,127.0.0.1:7004,127.0.0.1:7005,127.0.0.1:7006
+    expireSeconds: 120
+    commandTimeout: 10000  #redis操作的超时时间
+    password:
+    pool:
+      max-active: 5000
+      max-wait: -1
+      max-idle: 30
+      min-idle: 0
+    timeout: 6000
+  datasource:
+    name: druidDataSource
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      sys: #主系统数据源
+         driver-class-name: com.mysql.jdbc.Driver
+         url: jdbc:mysql://localhost:3306/drug?characterEncoding=utf8&useSSL=false
+         username: root
+         password: root
+      sync: #同步系统数据源
+         driver-class-name: com.mysql.jdbc.Driver
+         url: jdbc:mysql://localhost:3306/drug?characterEncoding=utf8&useSSL=false
+         username: root
+         password: root
+      filters: stat,wall,log4j,config
+      max-active: 100
+      initial-size: 1
+      max-wait: 60000
+      min-idle: 1
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: select 'x'
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-open-prepared-statements: 50
+      max-pool-prepared-statement-per-connection-size: 20
+
+configBasic:
+  druidServer: #主系统数据源
+    allow: 106.13.130.148
+    deny:
+    loginUsername: admin
+    loginPassword: admin
+    resetEnable: true
+  logoutUrl: #退出系统后跳转地址
+    url: http://127.0.0.1:8080/#/login
+
