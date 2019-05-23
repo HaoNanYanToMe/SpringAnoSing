@@ -1,9 +1,9 @@
-> **First of all, thank you for choosing the Spring AnoSing framework as your development tool.**
-> **Then, I think you're full of curiosity about this little fellow who was born not long ago.** 
+> **First of all, thank you for choosing the Spring AnoSing framework as your development tool.**<br/>
+> **Then, I think you're full of curiosity about this little fellow who was born not long ago.** <br/>
 > **Okay,Get to the point,What is Spring AnoSing?**
   
-   首先，非常感谢您选择了Spring AnoSing框架作为您的开发工具。
-   接着，我想您对Spring AnoSing这个刚诞生没多久的小家伙充满了好奇。
+   首先，非常感谢您选择了Spring AnoSing框架作为您的开发工具。<br/>
+   接着，我想您对Spring AnoSing这个刚诞生没多久的小家伙充满了好奇。<br/>
    好的，接下来就让我们一点点的揭开Spring AnoSing的神秘面纱吧~
 
 > **Introduce:**
@@ -40,7 +40,7 @@
 ### 开始使用：
 如果您已经确定您本地环境已经符合要求，您就可以点击下方连接将Spring AnoSing相配套的前后台源码包下载或通过git工具pull到您本地了。
 
->> **Initialize and run Spring AnoSing:**
+> **Initialize and run Spring AnoSing:**
 > 1. **Find AnoSingInit.sql files in the (SpringAnoSing) project root directory,And Execute in MySQL**
 > 2. **Modify the src/resouce/application.yml configuration parameters（Such as the database connection, port, exit jump page connection, etc.）**
 > 3. **Run the Java Project**
@@ -89,15 +89,15 @@
 	2. 在（**SpringAnoSingWeb//src/http.js**）文件中检索并将[ **~~const TYPE_ONLY = 1;~~** ]替换为 [ **const TYPE_ONLY = 0;** ]
 
 > **Mission accomplished**
-> **Congratulations, you have successfully started and run the Spring AnoSing.**
-> **Please open it in browser (npm run dev will automatically open :) ）: 127.0.0.1:8080 (default port) Start Spring AnoSing's experience officially~**
-> **System default account :admin /1**
-> **If you have any questions or functions you want, you are welcome to submit issue and let me know. I will reply to you in the first time.**
+> **Congratulations, you have successfully started and run the Spring AnoSing.**<br/>
+> **Please open it in browser (npm run dev will automatically open :) ）: 127.0.0.1:8080 (default port) Start Spring AnoSing's experience officially~**<br/>
+> **System default account :admin /1**<br/>
+> **If you have any questions or functions you want, you are welcome to submit issue and let me know. I will reply to you in the first time.**<br/>
 > **If you are interested in working together to improve Spring AnoSing, you are also welcome to submit your code in the branch. Thank you for your support:)**
 
 ### 结束   
-恭喜您，至此为止，您已经成功的在您本地启动并运行了Spring AnoSing项目。
-请您打开您的浏览器（执行npm run dev后页面会自动弹出 :) ）：127.0.0.1:8080（这是默认npm启动端口，您可以自行配置）就可以开始体验属于您的Spring AnoSing了
-PS：系统默认用户： admin/1
-如您有使用上的问题或想要的功能，欢迎您提交issue告知我，我会在第一时间回复您。
+恭喜您，至此为止，您已经成功的在您本地启动并运行了Spring AnoSing项目。<br/>
+请您打开您的浏览器（执行npm run dev后页面会自动弹出 :) ）：127.0.0.1:8080（这是默认npm启动端口，您可以自行配置）就可以开始体验属于您的Spring AnoSing了<br/>
+PS：系统默认用户： admin/1<br/>
+如您有使用上的问题或想要的功能，欢迎您提交issue告知我，我会在第一时间回复您。<br/>
 如您有兴趣一起来完善Spring AnoSing，也欢迎您在分支提交您的代码，感谢您的支持 ：）
