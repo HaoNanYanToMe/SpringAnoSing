@@ -1,159 +1,103 @@
-spring A.S
-====
-    更专注于业务层及复杂SQL的开发的Spring boot框架
+> **First of all, thank you for choosing the Spring AnoSing framework as your development tool.**
+> **Then, I think you're full of curiosity about this little fellow who was born not long ago.** 
+> **Okay,Get to the point,What is Spring AnoSing?**
+  
+   首先，非常感谢您选择了Spring AnoSing框架作为您的开发工具。
+   接着，我想您对Spring AnoSing这个刚诞生没多久的小家伙充满了好奇。
+   好的，接下来就让我们一点点的揭开Spring AnoSing的神秘面纱吧~
 
+> **Introduce:**
+>  1. **Spring AnoSing  Based on the Spring Boot Framework (Ver 1.5.10.RELEASE)**
+>  2. **Extremely LightWeight in the Project**
+>  3. **3.Agile development, more focused on core business logic**
+>  4. **4.Front and back end separation:AnoSing + Vue**
+>  5. **5.Have what you want，Give you what you want.**
 
-* 融合graphql的理念，不必再为修改几个字段就大费周章重新部署
-* 现在对于这些，你只需前端入参便可一步到位,极大程度减少后台代码业务量,将重复性无意义的包袱通通甩掉
-* SQL引擎简化业务层开发所需时间，提升业务开发效率
-* 全项目架构简洁轻便，提升代码开发效率
+### 初识Spring AnoSing
+1. Spring AnoSing 是一款基于Spring Boot开发的轻量级集成框架。
+2. 极·轻量级
+3. 敏捷开发，上手简单，提升开发效率
+4. 趋势：前后台分离:AnoSing + Vue
+5. 有你想有，给你想要！
 
-###  **A.S入门-如何运行我的Spring-A.S项目?** 
+> **Environmental needs：**
+> 1. **Please check your JDK Version Is it greater than 1.8+**
+> 2. **Please ensure that your computer has installed NPM environment**
+> 3. **Make sure that nginx and mysql is downloaded and installed on your computer**
 
-* 准备pdm数据文件(框架会提供一个test.pdm文件供您测试使用,后期就需要您自行准备了哦)
-* 运行test.generate.generateTest文件生成对应的config/dao及sql文件
-     * 将生成的BaseTableCfg.java文件复制粘贴至src.main.java.com.prism.springas.utils文件目录下(您也可以将已有的文件增加.bat后缀留做备份文件)
-     * 将生成的BaseDao.java文件复制粘贴至src.main.java.com.prism.springas.dao文件目录下(您也可以将已有的文件增加.bat后缀留做备份文件)
-     * 将生成的可执行sql文件打开后复制语句在sql工具内执行查询创建库表
- * 打开src.main.resource.application.yml文件修改对应的数据库连接配置信息
- * 打开src.main.java.SpringasApplication.java文件,右键运行
- * 启动成功! **恭喜您,您已经完成了Spring A.S的前期准备工作流程** ~
+### 环境基本需求
+1. 请检查您的JDK版本是否为1.8+及其以上
+2. 请确认您的电脑已经安装了npm运行环境
+3. 请确保您电脑已经下载并安装了nginx及mysql
 
-
-### A.S进阶-Spring-A.S使用手册
-
-* api层:底层数据交换映射层,主要与DAO层做数据交互
-     * impl:BaseApi的实现类,初步封装了简单的数据逻辑,以简化schema业务层的调用
-     * tools:BaseApi核心配置类以及DAO层映射核心代码
- * controller层:前台与后台数据交换层(对外数据交互接口层),主要与schema层做数据交互
-     * config:controller核心配置类/schema层映射核心代码及sqlEngine对前台JSON数据的校验及处理
- * dao层:mapper层,Mybatis数据交互层
-     * BaseDAO:通过test.generate.generateTest执行后的源生DAO.java文件
-     * exPand :拓展dao包
-         * xxExDAO:BaseDAO(源生DAO)无法实现的复杂逻辑SQL
-         * 拓展DAO层命名规范：xxx(业务名称)+ExDAO【不强制,仅做建议】
- * schema层:核心业务逻辑处理层,主要从API层获取数据并为Controller层提供数据
-     * BaseSchema:基础业务逻辑层(核心业务类)
-     * exPand :拓展schema包
-          * xxExSchema:BaseSchema(源生DAO)无法实现的复杂业务逻辑
-          * 拓展Schema层命名规范：xxx(业务名称)+ExSchema【不强制,仅做建议】
- * tools层:插件工具层(--目前只有比较简单的tools插件,后期版本会以拓展包形式发布提供给您使用,敬请关注。)
- * utils层:核心工具层,为框架提供核心工具类
-     * cache:缓存工具类(目前相对简陋一些,仅以支持框架为基础)
-     * pdmHelper:pdm-核心代码生成工具类
-     * **sqlEngine**:*框架核心SQL引擎工具类
-     * **BaseCoreCfg**：拓展DAO及Schema核心配置类(Ver1.1会优化为注解实现,进一步提升开发效率,相关更新敬请关注！)
-     * **BasePage**:*核心实体映射类
-     * **BaseTableCfg**：**pdm生成工具生成的核心源生表配置类(sqlEngine相关连表表名信息查询及表全查询字段功能)
-     * **BasicConfigUtil**:yml配置中的全局配参字段
- * **SpringasApplication**:spring boot框架启动类
-
-
-### Spring A.S注意事项及常见问题
-
-* 我应该如何配置我的拓展dao和schema业务类?
-     * ver1.0版本请您打开com.prism.springas.util.BaseCoreCfg
-     * 1.将您的拓展DAO及Schema通过@Autowired自动注入
-     * 2.在parseRefObject方法中配置您的拓展类名称(*唯一标识)
-     *  **具体代码详参com.prism.springas.util.BaseCoreCfg给出的测试用例** 
-* sqlEngine应该如何使用和配置？
-     * 您可以打开src.test.java.com.prism.springas路径,下面的3个测试类将通过实际代码为您演示sqlEngine的使用
-     * apiTests:API层接口测试
-     * schemaTests:SCHEMA层接口(方法)测试
-     * testThreadJunit:针对schema层在多线程下的更新及查询接口(方法)测试
-* pdm数据字段规范？
-     * 为了您的正常使用,建议您在设计表名及字段时使用大写英文字母(*由pdm生成的所有相关配置均为大写)
-     * 表内核心字段:
-         * ID:主键,varchar(128),请注意勾选pk选项,否则生成代码时会报错(*A.S全部主键均为UUID,还请注意)*核心字段！
-         * VERSION:数据版本号,int,必须要有的字段,*乐观锁核心匹配字段!
-         * CREATETIME：数据生成时间(首次创建时间),datetime,可选字段
-         * DATATIME:数据最后更新时间,datetime,可选字段
-         * ISDELETE:数据软删除状态,int,可选字段(如果您用到了数据软删除,建议您在设计表时加上该字段)
-
-### sqlEngine(ver 1.0)-SQL引擎使用说明(Schema业务逻辑层)
-
-* SELECT相关方法
-     * getSelById(String id):根据ID检索数据的匹配条件
-     * getSelTable(String tables):需要查询的数据表(支持多表,多个间以','隔开)
-         * 注意:连表表名需要从BaseTableCfg获取,*且对应关联表必须在(如：//=对应关联表：SPORTSINFO,TEACHERINFO,TYPEINFO0)中!
-         * 等效于: select * from a a left join b on a.id = b.id
-     * getSelCols(String tables):指定需要查询的数据字段(多个间以','隔开)
-         * tables-查询符合入参值的数据表全字段
-         * 等效于：select a.* from a 
-     * getSelCols(String tables,String cols):指定需要查询的数据字段(多个间以','隔开)
-         * tables-查询符合入参值的数据表全字段
-         * cols-查询符合入参值的字段,数据格式为 table_colname(数据表名_数据列名) / table_colname#alias(数据表名_数据列名#别名)
-         * 等效于: select a.*,b.name AS 'bname' from a a left join b on a.id = b.id
-     * getPage(Integer pageNo,Integer pageSize):数据分页
-         * pageNo:当前第X页
-         * pageSize:每页Y条
-         * 等效于:select * from a where 1=1 limit x,y
-     * getSort(String keys,String sortTypes):执行数据排序(多个间以','隔开)
-         * keys:需要执行排序的字段
-         * sortTypes：需要的排序类型,*sortTypes值需要与keys值一一对应
-             * sortTypes允许的参数如下:
-                 * 0 : 正常倒叙排序            order by a DESC
-                 * 1 : 根据汉语拼音正序排序     order by CONVERT(a) USING GBK ASC
-                 * 2 : 正常正叙排序            order by ASC
-                 * 3 : 根据汉语拼音倒叙排序     order by CONVERT(a) USING GBK DESC
-     * getWhereAnd(String key,String condition,Object val)/getWhereOr(String key,String condition,Object val):数据查询条件(and/or)
-         * key:执行查询的数据字段,格式为：table_Cols(表名_列名)
-         * condition:参数匹配条件(sqlEngineEnum)
-             * EQ:等于
-             * LIKE:模糊查询(使用时需要自行指定模糊查询条件,如'%老刘')
-             * GT:大于
-             * GTEQ:大于等于
-             * LT:小于
-             * LTEQ:小于等于
-             * NEQ:不等于
-             * NOTIN:不包含于(使用时,多个值需要以','隔开,如'1,2,3,4'..)
-             * IN:包含于(使用时,多个值需要以','隔开,如'1,2,3,4'..)
-             * ISNULL:为空(使用时,val入参为"n"即可)
-             * NOTNULL:不为空(使用时,val入参为"n"即可)
-             * BET:在a...b区间(使用时,val入参格式如下:'08:00:00**,**09:00:00',等效于查询8点-9点内产生的数据)
-         * val:对应数据查段查询值(请严格参照上述表格格式进行入参,否则数据不会正常返回(报错))
-     * getCount():计算数据总条数(total值)
- * DELETE相关方法
-     * getDelTables(String tables):需要执行删除的数据表
-     * getDeleteById(String id):以ID主键作为删除条件执行删除
-     * getNeedDelTable(String tables):指定需要删除的数据表(多表复合删除专属方法)
-     * **同样的,DELETE如果需要根据指定条件批量删除数据时,可以使用getWhereAnd/getWhereOr来指定删除条件^_^**
-     * **请注意一点:getWhereAnd/getWhereOr与getDeleteById并不共存,sqlEngine会以最后的调用的方法为最终标准执行!**
- * INSERT相关方法
-     * getAddData(String key,Object val):需要入库的字段及其对应值
-         * key:入库字段(直接使用列名即可,如NAME,ID等)
-         * val:入库值
- * UPDATE相关方法
-     * getUpdateTables(String tables):需要执行更新的数据主表
-     * getUpdateCols(String colKey,Object colValue):需要执行更新的字段及字段值
-         * colKey:需要执行更新的字段
-         * colValue:需要执行更新的字段值
-     * getUpdateWhereAnd(String key,String condition,Object val)/getUpdateWhereOr(String key,String condition,Object val):数据更新条件(and/or)
-         * 具体使用可参考**getWhereAnd/getWhereOr**
-     * getUpdCurrentVersion(String tableName,Integer value)：数据版本验证/需要配合getUpdateById使用(*不适用于批量更新)
-         * tableName:需要执行校验的数据表表名
-         * value:当前数据版本
-     * getUpdateById(String id):需要执行更新的数据主键ID
- * FETCH批量录入相关方法
-     * getAddFetchCols(String cols):需要执行批量录入的数据列(ID/ISDELETE/VERSION/CREATETIME/DATETIME除外),多个列名间以','隔开
-     * getAddFetchVals(List<BasePage fetchList):需要执行批量录入的数据值List
-
- **开发进度(版本更新日志)** 
-Version 0.X:  更新时间:2018-03-28
  
-版本功能:
-* PDM自生成相关代码
-* 完成了A.S框架的底层初步搭建
+> **Start using:**
+>  **If you have confirmed that your environment configuration is okay，Please click on the link below to download or git pull  the front and back end project packages for Spring AnoSing**
 
-Version 1.0:  更新时间:2019-01-08
+[·Down Load  : Spring AnoSing JavaWeb in GitLab](https://github.com/HaoNanYanToMe/SpringAnoSing)
+[·Down Load  : Spring AnoSing Vue in GitLab](https://github.com/HaoNanYanToMe/SpringAnoSingWeb)
+
+### 开始使用：
+如果您已经确定您本地环境已经符合要求，您就可以点击下方连接将Spring AnoSing相配套的前后台源码包下载或通过git工具pull到您本地了。
+
+>> **Initialize and run Spring AnoSing:**
+> 1. **Find AnoSingInit.sql files in the (SpringAnoSing) project root directory,And Execute in MySQL**
+> 2. **Modify the src/resouce/application.yml configuration parameters（Such as the database connection, port, exit jump page connection, etc.）**
+> 3. **Run the Java Project**
+> 4. **Open the Vue(SpringAnoSingWeb) Project Folder**
+> 5. **Using the cmd**
+> 6. **Execute [ npm install ] Initialization the project**
+> 7. **Execute [ npm install gojs --save ]**
+> 8. **Execute [ npm install vue-echarts --save ]**
+> 9.  **Open Vue(SpringAnoSingWeb) Projects with Editor(IDEA or HBuilder)**
+> 10. **Open VueAdmin/src/Global.js Modify your configuration**
+> 11. **Open VueAdmin/build/webpack.prod.config.js Serch and Modify  the publicPath in your service Address or Domain Name**
+> 12. **In cmd : Execute [ npm run dev ] run the Project (For local testing)**
+> 13. **In cmd : Execute [ npm run build ] run the Project (For official deployment,need using the nginx)**
+>
+>>**Matters needing attention：**
+> 
+> 1.**if you need to start the Test，you need to modify two files**
+> 	 1. **In SpringAnoSing/src/main/java/com/prsim/springas/aop/AccessCheck Find and Annotate  the [ ~~*@Around("recordController()")*~~ ]**
+>   2. **In SpringAnoSingWeb//src/http.js  Find and Modify the [ ~~const TYPE_ONLY = 0;~~  ]to[ const TYPE_ONLY = 1; ]**
+>   
+> 2.**if you need to start the Formal，you need to modify two files**
+> 	 1. **In SpringAnoSing/src/main/java/com/prsim/springas/aop/AccessCheck Find and Annotate Cancel the [*@Around("recordController()")* ]**
+>   2. **In SpringAnoSingWeb//src/http.js  Find and Modify the [ ~~const TYPE_ONLY = 1;~~  ]to[ const TYPE_ONLY = 0; ]**
  
-版本功能:
-* 优化PDM自生成相关代码
-* SQL引擎提出,进一步简化开发逻辑(*现版本仅支持Mysql数据库)
-* 优化异常抛出,更加精准定位exception异常点位,提升bug修复及代码维护的效率
-* 进一步提升了SQL引擎的数据安全性(2019-01-09)
+### 初始化并运行您的Spring AnoSing项目
+1. 在（SpringAnoSing）后台项目根目录下查找[**AnoSingInit.sql**]打开，并在mysql中执行初始化数据库。
+2. 修改 **SpringAnoSing/src/resouce/application.yml**配置文件（如数据库连接，端口，退出跳转连接等）
+3. 启动**SpringAnoSing**后台服务
+4. 打开您刚下载或pull的（**SpringAnoSingWeb**）文件夹
+5. 在地址栏键入命令**cmd**打开系统命令行工具
+6. 运行[**npm install**]以初始化构建前端vue项目
+7. 运行[**npm install gojs --save**]安装额外项目支持组件
+8. 运行[**npm install vue-echarts --save**]安装额外项目支持组件
+9. 在编译器中打开**SpringAnoSingWeb**项目
+10. 打开**VueAdmin/src/Global.js**修改基本项目参数
+11. 打开[**VueAdmin/build/webpack.prod.config.js**]检索[**publicPath**]将连接替换为您的IP或真实域名（建议使用真实域名）
+12. 在命令行工具中键入[npm run dev]以运行测试环境
+13. 在命令行工具中键入[npm run build]以打包正式环境（**需要nginx**）
 
+### 注意事项
+1. 如果您想要运行测试环境，建议您检查以下两个文件
+	1. 在（**SpringAnoSing/src/main/java/com/prsim/springas/aop/AccessCheck**）文件中检索 [ **~~*@Around("recordController()")*~~** ]将其注释
+	2. 在（**SpringAnoSingWeb//src/http.js**）文件中检索并将[ **~~const TYPE_ONLY = 0;~~** ]替换为 [ **const TYPE_ONLY = 1;** ]
+2. 如果您想要运行正式并打包环境，建议您检查以下两个文件
+	1. 在（**SpringAnoSing/src/main/java/com/prsim/springas/aop/AccessCheck**）文件中检索 [ **@Around("recordController()")** ]并去掉其注释
+	2. 在（**SpringAnoSingWeb//src/http.js**）文件中检索并将[ **~~const TYPE_ONLY = 1;~~** ]替换为 [ **const TYPE_ONLY = 0;** ]
 
- **PS** 
-如果您有什么好的建议和意见可以直接评论给我，感谢您的支持~
-Ver 2.0预计更新时间为1月16日~
+> **Mission accomplished**
+> **Congratulations, you have successfully started and run the Spring AnoSing.**
+> **Please open it in browser (npm run dev will automatically open :) ）: 127.0.0.1:8080 (default port) Start Spring AnoSing's experience officially~**
+> **System default account :admin /1**
+> **If you have any questions or functions you want, you are welcome to submit issue and let me know. I will reply to you in the first time.**
+> **If you are interested in working together to improve Spring AnoSing, you are also welcome to submit your code in the branch. Thank you for your support:)**
+
+### 结束   
+恭喜您，至此为止，您已经成功的在您本地启动并运行了Spring AnoSing项目。
+请您打开您的浏览器（执行npm run dev后页面会自动弹出 :) ）：127.0.0.1:8080（这是默认npm启动端口，您可以自行配置）就可以开始体验属于您的Spring AnoSing了
+PS：系统默认用户： admin/1
+如您有使用上的问题或想要的功能，欢迎您提交issue告知我，我会在第一时间回复您。
+如您有兴趣一起来完善Spring AnoSing，也欢迎您在分支提交您的代码，感谢您的支持 ：）
