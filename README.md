@@ -30,11 +30,13 @@
 > 1. **Please check your JDK Version Is it greater than 1.8+**
 > 2. **Please ensure that your computer has installed NPM environment**
 > 3. **Make sure that nginx and mysql is downloaded and installed on your computer**
+> 4. **Make sure you have Redis installed locally and start the corresponding Redis cluster.（After the 0.0.2 + version supports the caching springboard, you can switch control to use Cache or Redis at will.）**
 
 ### 环境基本需求
 1. 请检查您的JDK版本是否为1.8+及其以上
 2. 请确认您的电脑已经安装了npm运行环境
 3. 请确保您电脑已经下载并安装了nginx及mysql
+4. 请确保您本地已经安装了Redis，并启动了对应的Redis集群。（0.0.2+版本支持缓存跳板后，您可以随意切换控制使用Cache或是Redis）
 
  
 > **Start using:**
