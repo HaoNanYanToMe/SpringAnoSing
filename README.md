@@ -1,7 +1,13 @@
+> **Said ahead**
+>  **The predecessor of this AnoSing framework is Simplified and Upgraded Spring AS I wrote three months ago.**<br/>
+>  **Because a lot of people talk to me about the problems in the previous version of the code, so I absorbed your opinions and developed Spring AnoSing, which is now in front of you on the basis of AS.I promise you, this edition will never disappoint you.**
 > **First of all, thank you for choosing the Spring AnoSing framework as your development tool.**<br/>
 > **Then, I think you're full of curiosity about this little fellow who was born not long ago.** <br/>
 > **Okay,Get to the point,What is Spring AnoSing?**
   
+### 说在前面
+   这套AnoSing框架是我三个月开发的Spring AS简化及升级版。<br/>
+   由于很多人私聊我说上一版本的代码有诸多问题，所以我吸收了大家的意见在AS的基础上开发出了现在出现在您眼前的——Spring AnoSing，我保证，这一版绝对不会让您失望的 :) <br/>
    首先，非常感谢您选择了Spring AnoSing框架作为您的开发工具。<br/>
    接着，我想您对Spring AnoSing这个刚诞生没多久的小家伙充满了好奇。<br/>
    好的，接下来就让我们一点点的揭开Spring AnoSing的神秘面纱吧~
@@ -101,3 +107,17 @@
 PS：系统默认用户： admin/1<br/>
 如您有使用上的问题或想要的功能，欢迎您提交issue告知我，我会在第一时间回复您。<br/>
 如您有兴趣一起来完善Spring AnoSing，也欢迎您在分支提交您的代码，感谢您的支持 ：）
+
+> **Future version plan**
+> 1. **Existing SqlEngine upgrades:Complex grouping query optimization**
+> 2. **Add @prsimEngine annotations to optimize project structure and improve usability**
+> 3. **Adding Redis cache springboard to support SqlEngine at the bottom level and support online dynamic configuration.**
+> 4. **Added privilege groups to support single-user multi-role.**
+> 5. **And more……**
+
+### 未来版本更新计划
+1. 升级现有的SQL引擎：未来SQL引擎将可以更好的支持分组语句了
+2. 新增@prsimEngine注解以优化代码，去除重复性的配置，增加可读性及易用性
+3. 新增Redis缓存跳板以支持sqlEngine的底层功能，并启用线上配置，更为直观且易用。
+4. 新增用户权限组功能，以支持单用户多角色的需求。
+5. 更多其他……
