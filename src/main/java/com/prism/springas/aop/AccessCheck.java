@@ -42,7 +42,7 @@ public class AccessCheck {
     @Pointcut("execution(public * com.prism.springas.controller.BaseController.*(..))")
     public void recordController(){}
 
-    @Around("recordController()")
+//    @Around("recordController()")
     public String loginProcess(ProceedingJoinPoint point) throws Exception {
         RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
         //从获取RequestAttributes中获取HttpServletRequest的信息

@@ -49,8 +49,9 @@ spring:
       max-pool-prepared-statement-per-connection-size: 20
 
 configBasic:
+  name: Spring AnoSing
   druidServer: #主系统数据源
-    allow: 106.13.130.148
+    allow: 127.0.0.1
     deny:
     loginUsername: admin
     loginPassword: admin

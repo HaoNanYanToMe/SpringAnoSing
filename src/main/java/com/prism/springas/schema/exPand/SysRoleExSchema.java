@@ -6,6 +6,7 @@ import com.prism.springas.utils.BasePage;
 import com.prism.springas.utils.cache.CacheClass;
 import com.prism.springas.utils.sqlEngine.sqlEngine;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,6 +23,9 @@ public class SysRoleExSchema extends BaseSchema {
 
     @Autowired
     com.prism.springas.utils.redis.jedisUtil jedisUtil;
+
+    @Value("${configBasic.name}")
+    private String serverName;
 
     /**
      * 获取菜单树
@@ -64,7 +68,7 @@ public class SysRoleExSchema extends BaseSchema {
         if(treeList == null) {
             BasePage tree = new BasePage();
             tree.put("id", 0);
-            tree.put("title", "新东方北京学校·业务权限管理");
+            tree.put("title", serverName+"·业务菜单管理");
             tree.put("expand", true);
             tree.put("isLock", false);
             tree.put("version", 0);
